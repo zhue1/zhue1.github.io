@@ -1,0 +1,86 @@
+#title{
+    margin: auto;
+    width: 800px;
+}
+
+#title h1{
+    margin: 3% auto 0% auto;
+    text-align: center;
+    text-shadow: 1px 1px 3px rgb(114, 111, 83);
+    color: rgb(53, 53, 53);
+    font-family: cursive;
+    font-weight: 100;
+    display: inline-block;
+}
+
+.header-tabs{
+    position: relative;
+    padding: 12px 18px;
+    font-family: cursive;
+    font-weight: 500;
+    font-size: medium;
+    left: 71%;
+}
+
+a:link, a:visited{
+    background-color: transparent;
+    color: rgb(53, 53, 53);
+    text-align: center;
+    display: inline;
+}
+
+.header-tabs:hover, .header-tabs:active {
+    background-color: rgb(221, 215, 159);
+}
+
+.projects:link, .projects:visited{
+    background-color: white;
+    color: rgb(53, 53, 53);
+    text-align: center;
+    display: inline;
+}
+
+.projects:hover, .projects:active {
+    background-color: rgb(216, 216, 216);
+}
+
+
+
+#my-projects .projects{
+    position: relative;
+    display: block;
+    margin: 5% 20% 5% 20%;
+    font-family: cursive;
+    text-shadow: 1px 1px 3px rgb(114, 111, 83);
+    font-weight: 800;
+    font-size: large;
+    align-self: center;
+    padding: 100px 15px;
+    border-radius: 8px;
+}
+
+#my-projects{
+    position: relative;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: transparent;
+    box-shadow: 1px 1px 4px 1px rgb(121, 116, 84);
+    margin: 1% auto auto auto;
+    width: 800px;
+}
+
+#my-projects h2{
+    text-align: center;
+    color: rgb(53, 53, 53);
+    font-family: cursive;
+    font-weight: 900;
+}
+
+hr{
+    border: 1px solid rgb(121, 116, 84);
+    opacity: 0.5;
+}
+
+body{
+    background-color: rgb(250, 243, 177);
+}

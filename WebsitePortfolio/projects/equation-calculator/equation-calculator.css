@@ -1,0 +1,72 @@
+#title{
+    margin: auto;
+    width: 800px;
+}
+#title h1{
+    margin: 3% auto 0% auto;
+    text-shadow: 1px 1px 3px rgb(114, 111, 83);
+    color: rgb(53, 53, 53);
+    font-family: cursive;
+    font-weight: 100;
+    display: inline-block;
+}
+
+.header-tabs{
+    position: relative;
+    padding: 12px 18px;
+    font-family: cursive;
+    font-weight: 500;
+    font-size: medium;
+    left: 71%;
+}
+
+a:link, a:visited{
+    background-color: transparent;
+    color: rgb(53, 53, 53);
+    text-align: center;
+    display: inline;
+}
+
+.header-tabs:hover, .header-tabs:active {
+    background-color: rgb(221, 215, 159);
+}
+#border-box{
+    position: relative;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: transparent;
+    box-shadow: 1px 1px 4px 1px rgb(121, 116, 84);
+    margin: 1% auto auto auto;
+    width: 800px;
+    height: 500px;
+}
+
+#border-box h2{
+    text-align: center;
+    color: rgb(53, 53, 53);
+    font-family: cursive;
+    font-weight: 900;
+    text-decoration: underline;
+}
+
+#form1{
+    position: relative;
+    text-align: center;
+    margin: 5%;
+}
+#form1 h3{
+    margin: 1%;
+}
+
+.output-text{
+    text-align: center;
+}
+
+body{
+    background-color: rgb(250, 243, 177);
+}
+
+hr{
+    border: 1px solid rgb(121, 116, 84);
+    opacity: 0.5;
+}

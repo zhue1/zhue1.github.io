@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equation Calculator</title>
+    <link rel="stylesheet" href="equation-calculator.css" />
+    <script src="equation-calculator.js"></script>
+    <script src="all.min.js"></script>
+</head>
+<body>
+    <header id="title">
+        <div>
+            <h1><a href="../../index.html"> Eric Zhu </a></h1> 
+            <a class="header-tabs" href="../projects.html"> Projects </a>
+        </div>
+        <hr>
+    </header>
+
+    <main>
+        <div id="border-box">
+            <h2> Equation Calculator </h2>
+            <form id="form1" name="input-form" action="javascript:solver()">
+                <h3>Type in an Equation:</h3>
+                <input type="text" name="equation" size="25" required><br><br>
+                <input type="submit" value="Calculate"><br>
+            </form>
+            <p class="output-text" id="zeros"></p>
+            <p class="output-text" id="y-intercept"></p>
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+</html>

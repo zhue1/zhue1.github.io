@@ -58,3 +58,17 @@ aside .bottom .btn-solid { flex: 1; }
   .dl.rpg .choices { flex-wrap: wrap; }
 }
 @media (min-width: 901px) { .orb-wrap { position: absolute; inset: 0; } }
+
+/* "More about me" button, bottom-left of the stage */
+.stage .foot { align-items: flex-end; }
+.about-cta { display: inline-flex; align-items: center; gap: 12px; padding: 10px 18px 10px 10px; border-radius: 16px;
+  border: 1px solid rgba(190,170,255,.28); background: rgba(26,19,58,.72); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  color: var(--ink); font-family: var(--body); text-transform: none; letter-spacing: 0; transition: border-color .25s, box-shadow .25s, transform .25s; }
+.about-cta:hover, .about-cta:focus-visible { border-color: var(--cyan); box-shadow: 0 0 40px -10px rgba(78,230,255,.55); transform: translateY(-2px); }
+.about-cta .av { width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center; font: 700 14px var(--display);
+  background: linear-gradient(140deg, var(--blue), #4a2fb5); color: #fff; }
+.about-cta b { display: block; font: 700 15.5px var(--display); letter-spacing: .01em; }
+.about-cta small { display: block; font-size: 12.5px; color: var(--muted); }
+.about-cta .arr { margin-left: 6px; font-size: 18px; color: var(--cyan); transition: transform .25s; }
+.about-cta:hover .arr { transform: translateX(4px); }
+@media (max-width: 900px) { .about-cta { width: 100%; } .about-cta .arr { margin-left: auto; } }

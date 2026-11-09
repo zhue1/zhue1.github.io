@@ -1,0 +1,39 @@
+/* Shared look for every page: Nebula theme + Chakra Petch / Outfit / JetBrains Mono. */
+:root {
+  color-scheme: dark;
+  --bg: #07051a; --ink: #f3efff; --muted: #a7a2cc; --faint: #6c6794;
+  --line: rgba(190,170,255,.13); --card: rgba(26,19,58,.62);
+  --blue: #9b6bff; --cyan: #4ee6ff; --gold: #ffc46b;
+  --panel-a: #1c1344; --panel-b: #0c0822; --panel-border: #43339a;
+  --tag: #ffc46b; --tag-ring: rgba(155,107,255,.55); --tag-glow: rgba(155,107,255,.6);
+  --display: "Chakra Petch", system-ui, sans-serif;
+  --body: "Outfit", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+  --pad: clamp(16px, 5vw, 64px);
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+html, body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px/1.55 var(--body); -webkit-font-smoothing: antialiased; }
+body { overflow-x: hidden; }
+body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background: radial-gradient(48vw 38vw at 68% 32%, rgba(139,92,246,.32), transparent 62%),
+    radial-gradient(36vw 30vw at 88% 85%, rgba(236,72,153,.2), transparent 60%),
+    radial-gradient(42vw 34vw at 30% 75%, rgba(78,230,255,.10), transparent 60%),
+    radial-gradient(30vw 24vw at 50% 0%, rgba(91,124,255,.14), transparent 70%); }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+::selection { background: var(--blue); color: #fff; }
+.mono { font-family: var(--mono); }
+.eyebrow { font: 500 12px var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 10px #4ade80; margin-right: 8px; vertical-align: 1px; }
+.accent { background: linear-gradient(100deg, var(--blue), var(--cyan) 60%, var(--gold)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 44px; padding: 0 18px; border-radius: 999px; font: 600 15px var(--body); white-space: nowrap; transition: .2s; }
+.btn-solid { background: var(--ink); color: var(--bg); }
+.btn-solid:hover { box-shadow: 0 0 36px rgba(155,107,255,.55); }
+.btn-ghost { border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.02); color: var(--ink); }
+.btn-ghost:hover { border-color: rgba(255,255,255,.5); }
+.chip { font: 500 12px var(--mono); padding: 5px 11px; border-radius: 999px; border: 1px solid var(--line); color: #cfcbe8; }
+.glass { background: var(--card); border: 1px solid var(--line); border-radius: 20px; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+.skip { position: absolute; left: -999px; top: 8px; z-index: 100; padding: 8px 12px; background: var(--ink); color: var(--bg); border-radius: 8px; }
+.skip:focus { left: 8px; }

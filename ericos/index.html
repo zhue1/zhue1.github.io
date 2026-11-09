@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EricOS · Eric Zhu</title>
+<meta name="description" content="EricOS: Eric Zhu’s automation and agent-orchestration platform.">
+<meta property="og:title" content="EricOS · Eric Zhu">
+<meta property="og:description" content="EricOS: Eric Zhu’s automation and agent-orchestration platform.">
+<meta name="theme-color" content="#07051a">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/project.css">
+<link rel="stylesheet" href="/assets/css/base.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="proj">
+<header class="pnav">
+  <a class="back" href="/"><span>←</span>EZ</a>
+  <span class="crumb">projects / ericos</span>
+  <div class="right">
+    <button class="k" id="kbtn" type="button">⌕ Search <kbd>⌘K</kbd></button>
+    <a class="btn btn-ghost" href="/resume.pdf" target="_blank" rel="noopener">Resume</a>
+  </div>
+</header>
+<main>
+<section id="ericos" class="chapter" data-shape="network">
+    <div class="chapter-head reveal">
+      <p class="eyebrow mono">Project 02 · Personal platform · Sep 2026 – now</p>
+      <h2 class="scramble">EricOS</h2>
+      <p class="sub">My own automation and agent-orchestration platform. It runs 20+ scheduled jobs and coordinates parallel LLM coding agents that ship reviewed pull requests.</p>
+    </div>
+
+    <div class="sys reveal">
+      <svg class="flow" viewBox="0 30 900 300" role="img" aria-labelledby="flowTitle">
+        <title id="flowTitle">A planner hands tasks to three agents in isolated git worktrees; heavy test runs go to a Linux worker; passing work becomes a pull request.</title>
+        <defs>
+          <linearGradient id="edge" gradientUnits="userSpaceOnUse" x1="150" y1="0" x2="800" y2="0"><stop offset="0" stop-color="#5b7cff"/><stop offset="1" stop-color="#5ce1e6"/></linearGradient>
+        </defs>
+        <g class="edges" fill="none" stroke="url(#edge)" stroke-width="1.4">
+          <path id="e1" d="M150 180 C 230 180, 230 80, 310 80"/>
+          <path id="e2" d="M150 180 L 310 180"/>
+          <path id="e3" d="M150 180 C 230 180, 230 280, 310 280"/>
+          <path id="e4" d="M440 80 C 520 80, 520 180, 590 180"/>
+          <path id="e5" d="M440 180 L 590 180"/>
+          <path id="e6" d="M440 280 C 520 280, 520 180, 590 180"/>
+          <path id="e7" d="M720 180 L 800 180"/>
+        </g>
+        <g class="pulses">
+          <circle r="3.5"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#e1"/></animateMotion></circle>
+          <circle r="3.5"><animateMotion dur="2.2s" begin=".6s" repeatCount="indefinite"><mpath href="#e2"/></animateMotion></circle>
+          <circle r="3.5"><animateMotion dur="2.8s" begin="1.1s" repeatCount="indefinite"><mpath href="#e3"/></animateMotion></circle>
+          <circle r="3.5"><animateMotion dur="2.4s" begin=".3s" repeatCount="indefinite"><mpath href="#e4"/></animateMotion></circle>
+          <circle r="3.5"><animateMotion dur="2s" begin="1.4s" repeatCount="indefinite"><mpath href="#e5"/></animateMotion></circle>
+          <circle r="3.5"><animateMotion dur="2.6s" begin=".9s" repeatCount="indefinite"><mpath href="#e6"/></animateMotion></circle>
+          <circle r="3.5" class="gold"><animateMotion dur="1.6s" begin=".5s" repeatCount="indefinite"><mpath href="#e7"/></animateMotion></circle>
+        </g>
+        <g class="nodes">
+          <g transform="translate(20 150)"><rect width="130" height="60" rx="14"/><text x="65" y="27">planner</text><text x="65" y="44" class="t2">splits the task</text></g>
+          <g transform="translate(310 50)"><rect width="130" height="60" rx="14"/><text x="65" y="27">agent · wt/1</text><text x="65" y="44" class="t2">test first</text></g>
+          <g transform="translate(310 150)"><rect width="130" height="60" rx="14"/><text x="65" y="27">agent · wt/2</text><text x="65" y="44" class="t2">isolated worktree</text></g>
+          <g transform="translate(310 250)"><rect width="130" height="60" rx="14"/><text x="65" y="27">agent · wt/3</text><text x="65" y="44" class="t2">guard hooks</text></g>
+          <g transform="translate(590 150)"><rect width="130" height="60" rx="14"/><text x="65" y="27">linux worker</text><text x="65" y="44" class="t2">WSL2 over SSH</text></g>
+          <g transform="translate(800 150)" class="done"><rect width="80" height="60" rx="14"/><text x="40" y="27">PR</text><text x="40" y="44" class="t2">verified</text></g>
+        </g>
+      </svg>
+
+      <svg class="flow flow-v" viewBox="0 0 360 600" role="img" aria-label="A planner hands tasks to three agents in isolated git worktrees; heavy test runs go to a Linux worker; passing work becomes a pull request.">
+        <defs><linearGradient id="edgeV" gradientUnits="userSpaceOnUse" x1="0" y1="95" x2="0" y2="490"><stop offset="0" stop-color="#5b7cff"/><stop offset="1" stop-color="#5ce1e6"/></linearGradient></defs>
+        <g class="edges" fill="none" stroke="url(#edgeV)" stroke-width="1.4">
+          <path id="v1" d="M180 95 C 180 140, 60 140, 60 180"/>
+          <path id="v2" d="M180 95 L 180 180"/>
+          <path id="v3" d="M180 95 C 180 140, 300 140, 300 180"/>
+          <path id="v4" d="M60 250 C 60 300, 180 300, 180 340"/>
+          <path id="v5" d="M180 250 L 180 340"/>
+          <path id="v6" d="M300 250 C 300 300, 180 300, 180 340"/>
+          <path id="v7" d="M180 410 L 180 490"/>
+        </g>
+        <g class="pulses">
+          <circle r="4"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#v1"/></animateMotion></circle>
+          <circle r="4"><animateMotion dur="2s" begin=".5s" repeatCount="indefinite"><mpath href="#v2"/></animateMotion></circle>
+          <circle r="4"><animateMotion dur="2.6s" begin="1s" repeatCount="indefinite"><mpath href="#v3"/></animateMotion></circle>
+          <circle r="4"><animateMotion dur="2.4s" begin=".3s" repeatCount="indefinite"><mpath href="#v4"/></animateMotion></circle>
+          <circle r="4"><animateMotion dur="2s" begin="1.3s" repeatCount="indefinite"><mpath href="#v5"/></animateMotion></circle>
+          <circle r="4"><animateMotion dur="2.6s" begin=".8s" repeatCount="indefinite"><mpath href="#v6"/></animateMotion></circle>
+          <circle r="4" class="gold"><animateMotion dur="1.6s" begin=".4s" repeatCount="indefinite"><mpath href="#v7"/></animateMotion></circle>
+        </g>
+        <g class="nodes">
+          <g transform="translate(110 30)"><rect width="140" height="64" rx="14"/><text x="70" y="29">planner</text><text x="70" y="47" class="t2">splits the task</text></g>
+          <g transform="translate(8 180)"><rect width="104" height="70" rx="14"/><text x="52" y="31">agent 1</text><text x="52" y="50" class="t2">worktree</text></g>
+          <g transform="translate(128 180)"><rect width="104" height="70" rx="14"/><text x="52" y="31">agent 2</text><text x="52" y="50" class="t2">worktree</text></g>
+          <g transform="translate(248 180)"><rect width="104" height="70" rx="14"/><text x="52" y="31">agent 3</text><text x="52" y="50" class="t2">worktree</text></g>
+          <g transform="translate(100 340)"><rect width="160" height="70" rx="14"/><text x="80" y="31">linux worker</text><text x="80" y="50" class="t2">WSL2 over SSH</text></g>
+          <g transform="translate(120 490)" class="done"><rect width="120" height="70" rx="14"/><text x="60" y="31">PR</text><text x="60" y="50" class="t2">verified</text></g>
+        </g>
+      </svg>
+      <div class="term mono" aria-label="Example automation log">
+        <div class="term-bar"><i></i><i></i><i></i><span>ericos · scheduler</span></div>
+        <pre id="log"></pre>
+      </div>
+    </div>
+
+    <div class="cards">
+      <article class="card reveal">
+        <h3>Command center</h3>
+        <p>TypeScript, Node.js and React. A morning brief, deadline reminders and 20+ other scheduled jobs, with a dashboard I can reach from my phone over Tailscale.</p>
+      </article>
+      <article class="card reveal">
+        <h3>Job-scan pipeline</h3>
+        <p>Sweeps 527 Greenhouse, Lever and Ashby boards (3,300+ postings), fetches each one to drop closed or scam listings, and ranks new ones by fit with an LLM.</p>
+      </article>
+      <article class="card reveal">
+        <h3>Remote compute</h3>
+        <p>Heavy builds and test suites run on a WSL2 Linux box over SSH, with a watchdog that health-checks its services every 10 minutes and keeps the laptop free.</p>
+      </article>
+    </div>
+  </section></main>
+<nav class="nextp" aria-label="Next page"><a href="/roblox/"><span><small>Next</small><b>Roblox MMORPG</b></span><span class="arrow">→</span></a></nav>
+<footer class="foot mono">
+  <span>© 2026 Eric Zhu</span>
+  <span><a href="mailto:imericzhu@gmail.com">imericzhu@gmail.com</a> · <a href="https://linkedin.com/in/ezhu05" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/zhue1" target="_blank" rel="noopener">GitHub</a></span>
+</footer>
+<script src="/assets/js/bgfx.js"></script>
+<script type="module" src="/assets/js/project.js"></script>
+</body>
+</html>

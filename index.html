@@ -9,260 +9,53 @@
 <meta property="og:description" content="Founder & engineer of Ora. Full-stack and AI engineer. CS @ University of Florida.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://zhue1.github.io/">
-<meta name="theme-color" content="#06070c">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#07051a">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<script>document.documentElement.classList.add('js')</script>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/base.css">
+<link rel="stylesheet" href="/assets/css/hub.css">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js"}}</script>
 </head>
 <body>
-<canvas id="field" aria-hidden="true"></canvas>
-<div class="grain" aria-hidden="true"></div>
-<div class="glow" aria-hidden="true"></div>
-
-<header class="nav">
-  <a class="mark" href="#top" aria-label="Eric Zhu, home">
-    <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 10h7M8 16h6M8 22h7M8 10v12M18 10h7l-7 12h7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-  </a>
-  <nav>
-    <a href="#ora">Ora</a>
-    <a href="#ericos">EricOS</a>
-    <a href="#more">More</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <a class="btn btn-ghost magnetic" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
-</header>
-
-<main id="top">
-  <!-- HERO -->
-  <section class="hero" data-shape="orb">
-    <p class="eyebrow mono"><span class="dot"></span>Gainesville, FL · open to Summer 2027 SWE internships</p>
-    <h1 class="name" aria-label="Eric Zhu"><span class="line">Eric</span><span class="line">Zhu<span class="accent">.</span></span></h1>
-    <p class="lede">I build software end to end and ship it to real users: mobile apps, backends, and the AI systems in between.</p>
-    <p class="roles mono">&gt; <span id="role">Founder &amp; engineer @ Orbi Labs</span><span class="caret"></span></p>
-    <div class="cta">
-      <a class="btn btn-solid magnetic" href="#ora">See the work</a>
-      <a class="btn btn-ghost magnetic" href="mailto:imericzhu@gmail.com">imericzhu@gmail.com</a>
+<a class="skip" href="#projects">Skip to projects</a>
+<div class="layout">
+  <aside>
+    <span class="mk">EZ</span>
+    <span class="eyebrow"><span class="dot"></span>Open to Summer 2027 internships</span>
+    <h1>Eric<br>Zhu<span class="accent">.</span></h1>
+    <div class="role" id="role">&gt; Founder &amp; engineer @ Orbi Labs</div>
+    <p class="bio">I build software end to end and ship it to real users: mobile apps, backends and the AI between them.</p>
+    <button class="k" id="kbtn" type="button">⌕ Search anything <kbd>⌘K</kbd></button>
+    <div class="now"><span class="eyebrow"><span class="dot"></span>Now</span><p>Building <b>Ora</b> <span>· launching soon</span></p><p>CS senior <span>· University of Florida</span></p><p>Ops lead <span>· IEEE SPS</span></p></div>
+    <div class="bottom">
+      <a class="btn btn-solid" href="/resume.pdf" target="_blank" rel="noopener">Resume ↓</a>
+      <a class="soc" href="mailto:imericzhu@gmail.com" aria-label="Email">@</a>
+      <a class="soc" href="https://linkedin.com/in/ezhu05" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+      <a class="soc" href="https://github.com/zhue1" target="_blank" rel="noopener" aria-label="GitHub">gh</a>
     </div>
-    <div class="scroll-hint mono" aria-hidden="true"><span></span>scroll</div>
-  </section>
-
-  <!-- ORA -->
-  <section id="ora" class="chapter" data-shape="ring">
-    <div class="chapter-head reveal">
-      <p class="eyebrow mono">01 · Founder &amp; sole engineer · Jan 2026 – now</p>
-      <h2 class="scramble">Ora</h2>
-      <p class="sub">An AI training coach for powerlifting, bodybuilding, powerbuilding and general fitness, on iOS, Android and the web.</p>
+  </aside>
+  <main class="stage" id="stage">
+    <div class="lab"><span class="eyebrow">Projects · hover a planet, click to open</span><span class="eyebrow">03 projects · 01 role</span></div>
+    <div class="ring" style="width:880px;height:500px"></div><div class="ring" style="width:600px;height:340px;border-color:rgba(91,124,255,.12)"></div>
+    <div class="orb-wrap">
+      <canvas id="orb" aria-label="Particle orb. Something lives inside it."></canvas>
+      <div class="psst" id="psst">psst… click the orb</div>
     </div>
-
-    <div class="ora-grid">
-      <div class="ora-copy">
-        <div class="stats reveal">
-          <div class="stat"><b data-count="570">0</b><span>merged pull requests</span></div>
-          <div class="stat"><b data-count="1200">0</b><span>automated test files</span></div>
-          <div class="stat"><b data-count="86">0</b><span>Cloud Functions deployed</span></div>
-          <div class="stat"><b data-count="97">0</b><span>schema migrations</span></div>
-        </div>
-
-        <ol class="features">
-          <li class="reveal">
-            <h3>Orbi, the coach</h3>
-            <p>A Claude-powered coach behind a Cloud Function. Everyday chat goes to a fast model and program reviews to a larger one, with prompt caching and per-user and monthly spend caps.</p>
-          </li>
-          <li class="reveal">
-            <h3>AI proposes, code decides</h3>
-            <p>Orbi suggests program changes and the lifter approves them. Deterministic engines compute every load, so a model mistake can't quietly change a workout.</p>
-          </li>
-          <li class="reveal">
-            <h3>Offline-first data</h3>
-            <p>A local SQLite store with 97 versioned migrations for sets, reps, RPE, load, rest and soreness. Firestore holds accounts, friends, groups and the weekly leaderboard.</p>
-          </li>
-          <li class="reveal">
-            <h3>Hands-free logging</h3>
-            <p>On-device speech plus a rule-based parser: say <span class="mono hl">"bench 225 for 5 at RPE 8"</span> and the set is logged, with golden-case regression tests.</p>
-          </li>
-        </ol>
-
-        <div class="chips reveal">
-          <span>Flutter</span><span>Dart</span><span>Firebase</span><span>Cloud Functions</span><span>Firestore</span><span>SQLite</span><span>Claude API</span><span>RevenueCat</span>
-        </div>
-        <a class="link reveal" href="https://oracoach.app" target="_blank" rel="noopener">oracoach.app <span aria-hidden="true">↗</span></a>
-      </div>
-
-      <div class="ora-stage">
-        <div class="phone" id="phone">
-          <div class="phone-screen">
-            <img src="assets/ora/app_coach.webp" alt="Ora: chatting with Orbi, the AI coach" class="on" width="600" height="1304">
-            <img src="assets/ora/app_training.webp" alt="Ora: the training program page" width="600" height="1304" loading="lazy">
-            <img src="assets/ora/app_workout.webp" alt="Ora: logging a live workout" width="600" height="1304" loading="lazy">
-            <img src="assets/ora/app_progress.webp" alt="Ora: progress charts" width="600" height="1304" loading="lazy">
-            <img src="assets/ora/app_social.webp" alt="Ora: friends and social feed" width="600" height="1304" loading="lazy">
-            <img src="assets/ora/app_profile.webp" alt="Ora: the member profile card" width="600" height="1304" loading="lazy">
-          </div>
-          <div class="phone-shine"></div>
-        </div>
-        <div class="tabs mono" role="tablist" aria-label="Ora screens">
-          <button role="tab" aria-selected="true">Coach</button>
-          <button role="tab">Training</button>
-          <button role="tab">Workout</button>
-          <button role="tab">Progress</button>
-          <button role="tab">Social</button>
-          <button role="tab">Profile</button>
-        </div>
-        <img class="orbi" src="assets/orbi.webp" alt="" width="180" height="180" aria-hidden="true">
-      </div>
-    </div>
-  </section>
-
-  <!-- ERICOS -->
-  <section id="ericos" class="chapter" data-shape="network">
-    <div class="chapter-head reveal">
-      <p class="eyebrow mono">02 · Personal platform · Sep 2026 – now</p>
-      <h2 class="scramble">EricOS</h2>
-      <p class="sub">My own automation and agent-orchestration platform. It runs 20+ scheduled jobs and coordinates parallel LLM coding agents that ship reviewed pull requests.</p>
-    </div>
-
-    <div class="sys reveal">
-      <svg class="flow" viewBox="0 30 900 300" role="img" aria-labelledby="flowTitle">
-        <title id="flowTitle">A planner hands tasks to three agents in isolated git worktrees; heavy test runs go to a Linux worker; passing work becomes a pull request.</title>
-        <defs>
-          <linearGradient id="edge" gradientUnits="userSpaceOnUse" x1="150" y1="0" x2="800" y2="0"><stop offset="0" stop-color="#5b7cff"/><stop offset="1" stop-color="#5ce1e6"/></linearGradient>
-        </defs>
-        <g class="edges" fill="none" stroke="url(#edge)" stroke-width="1.4">
-          <path id="e1" d="M150 180 C 230 180, 230 80, 310 80"/>
-          <path id="e2" d="M150 180 L 310 180"/>
-          <path id="e3" d="M150 180 C 230 180, 230 280, 310 280"/>
-          <path id="e4" d="M440 80 C 520 80, 520 180, 590 180"/>
-          <path id="e5" d="M440 180 L 590 180"/>
-          <path id="e6" d="M440 280 C 520 280, 520 180, 590 180"/>
-          <path id="e7" d="M720 180 L 800 180"/>
-        </g>
-        <g class="pulses">
-          <circle r="3.5"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#e1"/></animateMotion></circle>
-          <circle r="3.5"><animateMotion dur="2.2s" begin=".6s" repeatCount="indefinite"><mpath href="#e2"/></animateMotion></circle>
-          <circle r="3.5"><animateMotion dur="2.8s" begin="1.1s" repeatCount="indefinite"><mpath href="#e3"/></animateMotion></circle>
-          <circle r="3.5"><animateMotion dur="2.4s" begin=".3s" repeatCount="indefinite"><mpath href="#e4"/></animateMotion></circle>
-          <circle r="3.5"><animateMotion dur="2s" begin="1.4s" repeatCount="indefinite"><mpath href="#e5"/></animateMotion></circle>
-          <circle r="3.5"><animateMotion dur="2.6s" begin=".9s" repeatCount="indefinite"><mpath href="#e6"/></animateMotion></circle>
-          <circle r="3.5" class="gold"><animateMotion dur="1.6s" begin=".5s" repeatCount="indefinite"><mpath href="#e7"/></animateMotion></circle>
-        </g>
-        <g class="nodes">
-          <g transform="translate(20 150)"><rect width="130" height="60" rx="14"/><text x="65" y="27">planner</text><text x="65" y="44" class="t2">splits the task</text></g>
-          <g transform="translate(310 50)"><rect width="130" height="60" rx="14"/><text x="65" y="27">agent · wt/1</text><text x="65" y="44" class="t2">test first</text></g>
-          <g transform="translate(310 150)"><rect width="130" height="60" rx="14"/><text x="65" y="27">agent · wt/2</text><text x="65" y="44" class="t2">isolated worktree</text></g>
-          <g transform="translate(310 250)"><rect width="130" height="60" rx="14"/><text x="65" y="27">agent · wt/3</text><text x="65" y="44" class="t2">guard hooks</text></g>
-          <g transform="translate(590 150)"><rect width="130" height="60" rx="14"/><text x="65" y="27">linux worker</text><text x="65" y="44" class="t2">WSL2 over SSH</text></g>
-          <g transform="translate(800 150)" class="done"><rect width="80" height="60" rx="14"/><text x="40" y="27">PR</text><text x="40" y="44" class="t2">verified</text></g>
-        </g>
-      </svg>
-
-      <svg class="flow flow-v" viewBox="0 0 360 600" role="img" aria-label="A planner hands tasks to three agents in isolated git worktrees; heavy test runs go to a Linux worker; passing work becomes a pull request.">
-        <defs><linearGradient id="edgeV" gradientUnits="userSpaceOnUse" x1="0" y1="95" x2="0" y2="490"><stop offset="0" stop-color="#5b7cff"/><stop offset="1" stop-color="#5ce1e6"/></linearGradient></defs>
-        <g class="edges" fill="none" stroke="url(#edgeV)" stroke-width="1.4">
-          <path id="v1" d="M180 95 C 180 140, 60 140, 60 180"/>
-          <path id="v2" d="M180 95 L 180 180"/>
-          <path id="v3" d="M180 95 C 180 140, 300 140, 300 180"/>
-          <path id="v4" d="M60 250 C 60 300, 180 300, 180 340"/>
-          <path id="v5" d="M180 250 L 180 340"/>
-          <path id="v6" d="M300 250 C 300 300, 180 300, 180 340"/>
-          <path id="v7" d="M180 410 L 180 490"/>
-        </g>
-        <g class="pulses">
-          <circle r="4"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#v1"/></animateMotion></circle>
-          <circle r="4"><animateMotion dur="2s" begin=".5s" repeatCount="indefinite"><mpath href="#v2"/></animateMotion></circle>
-          <circle r="4"><animateMotion dur="2.6s" begin="1s" repeatCount="indefinite"><mpath href="#v3"/></animateMotion></circle>
-          <circle r="4"><animateMotion dur="2.4s" begin=".3s" repeatCount="indefinite"><mpath href="#v4"/></animateMotion></circle>
-          <circle r="4"><animateMotion dur="2s" begin="1.3s" repeatCount="indefinite"><mpath href="#v5"/></animateMotion></circle>
-          <circle r="4"><animateMotion dur="2.6s" begin=".8s" repeatCount="indefinite"><mpath href="#v6"/></animateMotion></circle>
-          <circle r="4" class="gold"><animateMotion dur="1.6s" begin=".4s" repeatCount="indefinite"><mpath href="#v7"/></animateMotion></circle>
-        </g>
-        <g class="nodes">
-          <g transform="translate(110 30)"><rect width="140" height="64" rx="14"/><text x="70" y="29">planner</text><text x="70" y="47" class="t2">splits the task</text></g>
-          <g transform="translate(8 180)"><rect width="104" height="70" rx="14"/><text x="52" y="31">agent 1</text><text x="52" y="50" class="t2">worktree</text></g>
-          <g transform="translate(128 180)"><rect width="104" height="70" rx="14"/><text x="52" y="31">agent 2</text><text x="52" y="50" class="t2">worktree</text></g>
-          <g transform="translate(248 180)"><rect width="104" height="70" rx="14"/><text x="52" y="31">agent 3</text><text x="52" y="50" class="t2">worktree</text></g>
-          <g transform="translate(100 340)"><rect width="160" height="70" rx="14"/><text x="80" y="31">linux worker</text><text x="80" y="50" class="t2">WSL2 over SSH</text></g>
-          <g transform="translate(120 490)" class="done"><rect width="120" height="70" rx="14"/><text x="60" y="31">PR</text><text x="60" y="50" class="t2">verified</text></g>
-        </g>
-      </svg>
-      <div class="term mono" aria-label="Example automation log">
-        <div class="term-bar"><i></i><i></i><i></i><span>ericos · scheduler</span></div>
-        <pre id="log"></pre>
-      </div>
-    </div>
-
-    <div class="cards">
-      <article class="card reveal">
-        <h3>Command center</h3>
-        <p>TypeScript, Node.js and React. A morning brief, deadline reminders and 20+ other scheduled jobs, with a dashboard I can reach from my phone over Tailscale.</p>
-      </article>
-      <article class="card reveal">
-        <h3>Job-scan pipeline</h3>
-        <p>Sweeps 527 Greenhouse, Lever and Ashby boards (3,300+ postings), fetches each one to drop closed or scam listings, and ranks new ones by fit with an LLM.</p>
-      </article>
-      <article class="card reveal">
-        <h3>Remote compute</h3>
-        <p>Heavy builds and test suites run on a WSL2 Linux box over SSH, with a watchdog that health-checks its services every 10 minutes and keeps the laptop free.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- MORE -->
-  <section id="more" class="chapter" data-shape="voxel">
-    <div class="chapter-head reveal">
-      <p class="eyebrow mono">03 · Before and beside</p>
-      <h2 class="scramble">More</h2>
-    </div>
-    <div class="more-grid">
-      <article class="tile reveal">
-        <p class="mono when">Jun 2021 – Aug 2023</p>
-        <h3>Multiplayer MMORPG on Roblox</h3>
-        <p>Started in high school and built it alone: quests, combat, weather, NPCs and events across 100+ gameplay, UI and server scripts, with session-locked player saves. I made the 3D models too, and ran A/B-tested ad campaigns for launch.</p>
-        <div class="mini-stats"><span><b>781</b> visits</span><span><b>28</b> testers</span><span><b>1</b> developer</span></div>
-        <div class="chips"><span>Luau</span><span>Client/server</span><span>Persistence</span><span>3D modeling</span></div>
-      </article>
-      <article class="tile reveal">
-        <p class="mono when">May 2026 – now</p>
-        <h3>Chief of Operations, IEEE Signal Processing Society at UF</h3>
-        <p>Run day-to-day operations for a 450+ member technical club: officer workstreams, weekly workshops, speaker logistics and member communications, including events with speakers from NVIDIA and Microsoft.</p>
-        <div class="mini-stats"><span><b>450+</b> members</span><span><b>weekly</b> workshops</span></div>
-      </article>
-      <article class="tile reveal">
-        <p class="mono when">Aug 2023 – Dec 2027 (expected)</p>
-        <h3>B.S. Computer Science, University of Florida</h3>
-        <p>Herbert Wertheim College of Engineering. GPA 3.67, Dean's List. Data Structures &amp; Algorithms, Algorithm Design, Operating Systems, Database Systems, Computer Networks, Computer Organization.</p>
-      </article>
-    </div>
-
-    <div class="marquee mono" aria-label="Skills">
-      <div class="track">
-        <span>Python</span><span>C++</span><span>Java</span><span>TypeScript</span><span>Dart</span><span>SQL</span><span>Firebase</span><span>Node.js</span><span>Flutter</span><span>React</span><span>SQLite</span><span>Claude API</span><span>LLM agents</span><span>Linux</span><span>AWS</span><span>Git</span>
-        <span aria-hidden="true">Python</span><span aria-hidden="true">C++</span><span aria-hidden="true">Java</span><span aria-hidden="true">TypeScript</span><span aria-hidden="true">Dart</span><span aria-hidden="true">SQL</span><span aria-hidden="true">Firebase</span><span aria-hidden="true">Node.js</span><span aria-hidden="true">Flutter</span><span aria-hidden="true">React</span><span aria-hidden="true">SQLite</span><span aria-hidden="true">Claude API</span><span aria-hidden="true">LLM agents</span><span aria-hidden="true">Linux</span><span aria-hidden="true">AWS</span><span aria-hidden="true">Git</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="contact" data-shape="galaxy">
-    <p class="eyebrow mono reveal">04 · Say hi</p>
-    <h2 class="big reveal">Let's build<br>something <span class="accent">real.</span></h2>
-    <p class="sub reveal">Most interested in backend and data systems: the parts of a product that have to be correct, fast and reliable.</p>
-    <div class="cta reveal">
-      <a class="btn btn-solid magnetic" href="mailto:imericzhu@gmail.com">imericzhu@gmail.com</a>
-      <a class="btn btn-ghost magnetic" href="https://linkedin.com/in/ezhu05" target="_blank" rel="noopener">LinkedIn ↗</a>
-      <a class="btn btn-ghost magnetic" href="https://github.com/zhue1" target="_blank" rel="noopener">GitHub ↗</a>
-      <a class="btn btn-ghost magnetic" href="resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
-    </div>
-  </section>
-</main>
-
-<footer class="foot mono">
-  <span>© 2026 Eric Zhu</span>
-  <span>Built with HTML, CSS &amp; WebGL. <span id="pcount"></span></span>
-</footer>
-
-<script type="module" src="main.js"></script>
+    <nav class="planets" id="projects" aria-label="Projects">
+      <a class="planet glass" href="/ora/"><div class="row1"><span class="ic" style="background:radial-gradient(circle at 50% 40%,#2a4cb8,#0b1430)"><img src="/assets/orbi.webp" alt=""></span><span><b>Ora</b><small>AI training coach · 2026–</small></span></div><div class="more">570+ PRs · 86 Cloud Functions · iOS, Android, web</div></a>
+      <a class="planet glass" href="/ericos/"><div class="row1"><span class="ic" style="background:linear-gradient(140deg,#140f30,#27206a);color:var(--cyan)">&gt;_</span><span><b>EricOS</b><small>Agent orchestration · 2026–</small></span></div><div class="more">20+ scheduled jobs · parallel agents ship reviewed PRs</div></a>
+      <a class="planet glass" href="/roblox/"><div class="row1"><span class="ic" style="background:linear-gradient(140deg,#18323a,#0b1418);color:var(--cyan)">⬢</span><span><b>Roblox MMORPG</b><small>Solo game · 2021–23</small></span></div><div class="more">781 visits · 28 testers · 100+ scripts</div></a>
+      <a class="planet glass" href="/about/#ieee"><div class="row1"><span class="ic" style="background:linear-gradient(140deg,#2a2550,#120e26)">IE</span><span><b>IEEE SPS @ UF</b><small>Chief of Operations · 2026–</small></span></div><div class="more">450+ members · NVIDIA &amp; Microsoft speakers</div></a>
+    </nav>
+    <div class="foot"><a href="/about/">more about me →</a><span></span></div>
+  </main>
+</div>
+<script src="/assets/js/bgfx.js"></script>
+<script>window.ORB_COLS = ['139,92,246', '78,230,255', '255,196,107'];</script>
+<script src="/assets/js/orb.js"></script>
+<script type="module" src="/assets/js/hub.js"></script>
+<script>if (matchMedia('(hover: none)').matches) document.getElementById('psst').textContent = 'psst… tap the orb';</script>
 </body>
 </html>

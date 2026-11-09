@@ -1,0 +1,60 @@
+/* Homepage: side panel + projects orbiting the particle orb. */
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 370px 1fr; height: 100vh; height: 100svh; }
+aside { padding: 34px 32px 28px; display: flex; flex-direction: column; border-right: 1px solid var(--line); background: rgba(10,7,30,.5); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); overflow-y: auto; }
+aside .mk { font: 700 20px var(--display); margin-bottom: 28px; }
+aside h1 { font: 700 66px/.9 var(--display); letter-spacing: -.02em; text-transform: uppercase; margin: 14px 0 12px; }
+aside .role { color: var(--cyan); font: 500 13px var(--mono); margin-bottom: 12px; min-height: 1.5em; }
+aside .bio { color: var(--muted); font-size: 15px; margin: 0 0 22px; }
+.k { display: flex; align-items: center; gap: 10px; width: 100%; height: 46px; padding: 0 14px; border-radius: 14px; border: 1px solid var(--line); background: rgba(255,255,255,.03); color: var(--faint); font: 400 14.5px var(--body); cursor: pointer; margin-bottom: 22px; transition: border-color .2s, color .2s; text-align: left; }
+.k:hover { border-color: rgba(78,230,255,.5); color: var(--muted); }
+.k kbd { margin-left: auto; font: 500 11.5px var(--mono); border: 1px solid var(--line); border-radius: 6px; padding: 2px 6px; color: var(--muted); }
+.now { padding: 14px 16px; border-radius: 16px; border: 1px solid var(--line); background: rgba(20,15,45,.5); }
+.now p { margin: 8px 0 0; font-size: 14px; color: #dcd8f2; } .now p span { color: var(--muted); }
+aside .bottom { margin-top: auto; padding-top: 22px; display: flex; gap: 8px; align-items: center; }
+aside .bottom .btn-solid { flex: 1; }
+.soc { width: 44px; height: 44px; border-radius: 12px; border: 1px solid var(--line); display: grid; place-items: center; font: 600 13px var(--mono); color: var(--muted); transition: .2s; }
+.soc:hover { color: var(--ink); border-color: var(--cyan); }
+
+.stage { position: relative; overflow: hidden; }
+.stage .lab { position: absolute; top: 34px; left: 40px; right: 40px; display: flex; justify-content: space-between; z-index: 3; }
+#orb { position: absolute; left: 50%; top: 50%; width: 820px; height: 820px; transform: translate(-50%,-50%); }
+#orb.armed { cursor: pointer; }
+.ring { position: absolute; left: 50%; top: 50%; border: 1px dashed rgba(190,170,255,.18); border-radius: 50%; transform: translate(-50%,-50%); pointer-events: none; }
+.psst { position: absolute; left: 50%; top: calc(50% + 205px); transform: translateX(-50%); font: 500 11.5px var(--mono); color: var(--faint); letter-spacing: .06em; transition: opacity .3s; white-space: nowrap; }
+.planets { position: absolute; inset: 0; pointer-events: none; }
+.planet { position: absolute; left: 0; top: 0; width: 270px; padding: 16px; border-radius: 20px; will-change: transform; pointer-events: auto; transition: border-color .25s, box-shadow .25s; }
+.planet .row1 { display: flex; align-items: center; gap: 12px; }
+.planet .ic { width: 46px; height: 46px; border-radius: 13px; flex: none; display: grid; place-items: center; font: 700 15px var(--mono); border: 1px solid rgba(255,255,255,.14); overflow: hidden; }
+.planet .ic img { width: 80%; }
+.planet b { font: 700 19px var(--display); letter-spacing: .01em; display: block; }
+.planet small { color: var(--muted); font-size: 12.5px; }
+.planet .more { max-height: 0; overflow: hidden; transition: max-height .35s, margin .35s; font-size: 13px; color: var(--muted); }
+.planet:hover, .planet:focus-visible { border-color: var(--cyan); box-shadow: 0 0 50px -10px rgba(78,230,255,.5); }
+.planet:hover .more, .planet:focus-visible .more { max-height: 80px; margin-top: 10px; }
+.stage .foot { position: absolute; bottom: 26px; left: 40px; right: 40px; display: flex; justify-content: space-between; font: 500 12px var(--mono); color: var(--faint); z-index: 3; }
+
+/* Phones and narrow windows: stack the panel, keep the orb, list the projects. */
+@media (max-width: 900px) {
+  .layout { display: block; height: auto; }
+  aside { border-right: 0; border-bottom: 1px solid var(--line); padding: 24px 18px; overflow: visible; }
+  aside h1 { font-size: 56px; }
+  aside .bottom { margin-top: 0; }
+  .stage { height: auto; overflow: visible; padding: 20px 16px 40px; }
+  .stage .lab { position: static; margin-bottom: 8px; }
+  .stage .lab span:last-child { display: none; }
+  .orb-wrap { position: relative; height: 380px; margin: 0 -16px; overflow: hidden; }
+  #orb { width: 560px; height: 560px; }
+  .ring { display: none; }
+  .psst { top: auto; bottom: 14px; }
+  .planets { position: static; display: grid; gap: 12px; pointer-events: auto; }
+  .planet { position: static; width: auto; transform: none !important; opacity: 1 !important; }
+  .planet .more { max-height: none; margin-top: 10px; }
+  .stage .foot { position: static; margin-top: 22px; }
+  .dl.rpg { left: 10px !important; right: 10px; width: auto !important; bottom: 14px !important; grid-template-columns: 60px 1fr; gap: 12px; padding: 16px 14px 14px; }
+  .dl.rpg .por { width: 60px; height: 60px; }
+  .dl.rpg .name { left: 86px; }
+  .dl.rpg p { font-size: 15px; min-height: 4.5em; }
+  .dl.rpg .hint { display: none; }
+  .dl.rpg .choices { flex-wrap: wrap; }
+}
+@media (min-width: 901px) { .orb-wrap { position: absolute; inset: 0; } }

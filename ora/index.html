@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ora · Eric Zhu</title>
+<meta name="description" content="Ora, an AI training coach for iOS, Android and the web, built by Eric Zhu as founder and sole engineer.">
+<meta property="og:title" content="Ora · Eric Zhu">
+<meta property="og:description" content="Ora, an AI training coach for iOS, Android and the web, built by Eric Zhu as founder and sole engineer.">
+<meta name="theme-color" content="#07051a">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/project.css">
+<link rel="stylesheet" href="/assets/css/base.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="proj">
+<header class="pnav">
+  <a class="back" href="/"><span>←</span>EZ</a>
+  <span class="crumb">projects / ora</span>
+  <div class="right">
+    <button class="k" id="kbtn" type="button">⌕ Search <kbd>⌘K</kbd></button>
+    <a class="btn btn-ghost" href="/resume.pdf" target="_blank" rel="noopener">Resume</a>
+  </div>
+</header>
+<main>
+<section id="ora" class="chapter" data-shape="ring">
+    <div class="chapter-head reveal">
+      <p class="eyebrow mono">Project 01 · Founder &amp; sole engineer · Jan 2026 – now</p>
+      <h2 class="scramble">Ora</h2>
+      <p class="sub">An AI training coach for powerlifting, bodybuilding, powerbuilding and general fitness, on iOS, Android and the web.</p>
+    </div>
+
+    <div class="ora-grid">
+      <div class="ora-copy">
+        <div class="stats reveal">
+          <div class="stat"><b data-count="570">0</b><span>merged pull requests</span></div>
+          <div class="stat"><b data-count="1200">0</b><span>automated test files</span></div>
+          <div class="stat"><b data-count="86">0</b><span>Cloud Functions deployed</span></div>
+          <div class="stat"><b data-count="97">0</b><span>schema migrations</span></div>
+        </div>
+
+        <ol class="features">
+          <li class="reveal">
+            <h3>Orbi, the coach</h3>
+            <p>A Claude-powered coach behind a Cloud Function. Everyday chat goes to a fast model and program reviews to a larger one, with prompt caching and per-user and monthly spend caps.</p>
+          </li>
+          <li class="reveal">
+            <h3>AI proposes, code decides</h3>
+            <p>Orbi suggests program changes and the lifter approves them. Deterministic engines compute every load, so a model mistake can't quietly change a workout.</p>
+          </li>
+          <li class="reveal">
+            <h3>Offline-first data</h3>
+            <p>A local SQLite store with 97 versioned migrations for sets, reps, RPE, load, rest and soreness. Firestore holds accounts, friends, groups and the weekly leaderboard.</p>
+          </li>
+          <li class="reveal">
+            <h3>Hands-free logging</h3>
+            <p>On-device speech plus a rule-based parser: say <span class="mono hl">"bench 225 for 5 at RPE 8"</span> and the set is logged, with golden-case regression tests.</p>
+          </li>
+        </ol>
+
+        <div class="chips reveal">
+          <span>Flutter</span><span>Dart</span><span>Firebase</span><span>Cloud Functions</span><span>Firestore</span><span>SQLite</span><span>Claude API</span><span>RevenueCat</span>
+        </div>
+        <a class="link reveal" href="https://oracoach.app" target="_blank" rel="noopener">oracoach.app <span aria-hidden="true">↗</span></a>
+      </div>
+
+      <div class="ora-stage">
+        <div class="phone" id="phone">
+          <div class="phone-screen">
+            <img src="/assets/ora/app_coach.webp" alt="Ora: chatting with Orbi, the AI coach" class="on" width="600" height="1304">
+            <img src="/assets/ora/app_training.webp" alt="Ora: the training program page" width="600" height="1304" loading="lazy">
+            <img src="/assets/ora/app_workout.webp" alt="Ora: logging a live workout" width="600" height="1304" loading="lazy">
+            <img src="/assets/ora/app_progress.webp" alt="Ora: progress charts" width="600" height="1304" loading="lazy">
+            <img src="/assets/ora/app_social.webp" alt="Ora: friends and social feed" width="600" height="1304" loading="lazy">
+            <img src="/assets/ora/app_profile.webp" alt="Ora: the member profile card" width="600" height="1304" loading="lazy">
+          </div>
+          <div class="phone-shine"></div>
+        </div>
+        <div class="tabs mono" role="tablist" aria-label="Ora screens">
+          <button role="tab" aria-selected="true">Coach</button>
+          <button role="tab">Training</button>
+          <button role="tab">Workout</button>
+          <button role="tab">Progress</button>
+          <button role="tab">Social</button>
+          <button role="tab">Profile</button>
+        </div>
+        <img class="orbi" src="/assets/orbi.webp" alt="" width="180" height="180" aria-hidden="true">
+      </div>
+    </div>
+  </section></main>
+<nav class="nextp" aria-label="Next page"><a href="/ericos/"><span><small>Next</small><b>EricOS</b></span><span class="arrow">→</span></a></nav>
+<footer class="foot mono">
+  <span>© 2026 Eric Zhu</span>
+  <span><a href="mailto:imericzhu@gmail.com">imericzhu@gmail.com</a> · <a href="https://linkedin.com/in/ezhu05" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/zhue1" target="_blank" rel="noopener">GitHub</a></span>
+</footer>
+<script src="/assets/js/bgfx.js"></script>
+<script type="module" src="/assets/js/project.js"></script>
+</body>
+</html>

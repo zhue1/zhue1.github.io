@@ -96,6 +96,9 @@ figure.shot { margin: 0; }
 
 .rb-stats b span { font: inherit; color: inherit; }
 
+figure.shot.wide { aspect-ratio: 21 / 9; }
+.shot.wide img { object-position: 50% 62%; }
+
 /* Until a screenshot is added, its slot is hidden and the layout collapses around it. */
 .shot.todo { display: none; }
 .rb-hero:not(:has(.shot:not(.todo))) { grid-template-columns: 1fr; }

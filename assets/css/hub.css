@@ -26,6 +26,7 @@ aside .bottom .btn-solid { flex: 1; }
 .planet .row1 { display: flex; align-items: center; gap: 12px; }
 .planet .ic { width: 46px; height: 46px; border-radius: 13px; flex: none; display: grid; place-items: center; font: 700 15px var(--mono); border: 1px solid rgba(255,255,255,.14); overflow: hidden; }
 .planet .ic img { width: 80%; }
+.planet .ic svg.ic { width: 24px; height: 24px; border: 0; border-radius: 0; background: none; }
 .planet b { font: 700 19px var(--display); letter-spacing: .01em; display: block; }
 .planet small { color: var(--muted); font-size: 12.5px; }
 .planet .more { max-height: 0; overflow: hidden; transition: max-height .35s, margin .35s; font-size: 13px; color: var(--muted); }

@@ -37,3 +37,12 @@ img { display: block; max-width: 100%; }
 :focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
 .skip { position: absolute; left: -999px; top: 8px; z-index: 100; padding: 8px 12px; background: var(--ink); color: var(--bg); border-radius: 8px; }
 .skip:focus { left: 8px; }
+
+/* brand + utility icons (sprite: /assets/icons.svg) */
+.ic { width: 1.15em; height: 1.15em; flex: none; display: inline-block; vertical-align: -0.2em; }
+.btn .ic { width: 17px; height: 17px; }
+.soc .ic { width: 19px; height: 19px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; }
+.chip .ic { width: 13px; height: 13px; }
+a.fl { display: inline-flex; align-items: center; gap: 6px; margin-left: 14px; }
+a.fl .ic { width: 15px; height: 15px; }

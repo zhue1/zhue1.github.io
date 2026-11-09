@@ -8,15 +8,16 @@ const css = `
 .pal ul{list-style:none;margin:0;padding:8px;max-height:360px;overflow:auto}
 .pal li{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;cursor:pointer;color:#cfd3e1;font-size:15px}
 .pal li .g{font:500 11px var(--mono);color:#5a6075;margin-left:auto;text-transform:uppercase;letter-spacing:.08em}
+.pal li .i .ic{width:15px;height:15px}
 .pal li .i{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;font:700 12px var(--mono);background:rgba(91,124,255,.18);color:#9fb4ff}
 .pal li.sel{background:rgba(91,124,255,.16);color:#fff}
 .pal li.secret .i{background:linear-gradient(140deg,#1e78fa,#0b3c9a);color:#fff}
 .pal .ft{display:flex;gap:16px;padding:10px 16px;border-top:1px solid rgba(255,255,255,.08);font:500 11.5px var(--mono);color:#5a6075}
 `;
 export const ITEMS = [
-  ['Ora', 'Project', 'O', '/ora/'], ['EricOS', 'Project', '>_', '/ericos/'], ['Roblox MMORPG', 'Project', '⬢', '/roblox/'],
-  ['Resume (PDF)', 'Download', 'CV', '/resume.pdf', true], ['About me', 'Page', 'EZ', '/about/'], ['IEEE SPS', 'Experience', 'IE', '/about/#ieee'],
-  ['Email', 'Contact', '@', 'mailto:imericzhu@gmail.com'], ['LinkedIn', 'Contact', 'in', 'https://linkedin.com/in/ezhu05', true], ['GitHub', 'Contact', '{}', 'https://github.com/zhue1', true],
+  ['Ora', 'Project', 'O', '/ora/'], ['EricOS', 'Project', '>_', '/ericos/'], ['Roblox MMORPG', 'Project', '<svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-roblox"/></svg>', '/roblox/'],
+  ['Resume (PDF)', 'Download', '<svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-resume"/></svg>', '/resume.pdf', true], ['About me', 'Page', 'EZ', '/about/'], ['IEEE SPS', 'Experience', 'IE', '/about/#ieee'],
+  ['Email', 'Contact', '<svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-mail"/></svg>', 'mailto:imericzhu@gmail.com'], ['LinkedIn', 'Contact', '<svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-linkedin"/></svg>', 'https://linkedin.com/in/ezhu05', true], ['GitHub', 'Contact', '<svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-github"/></svg>', 'https://github.com/zhue1', true],
   ['Home', 'Page', '⌂', '/'],
 ];
 export function palette({ onOrbi, items = ITEMS } = {}) {

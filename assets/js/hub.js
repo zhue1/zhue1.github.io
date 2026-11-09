@@ -20,7 +20,7 @@ if (!reduce) (async () => {
 
 // If the particle script didn't load, keep the page working without the orb.
 const noop = { assemble: () => false, disperse: () => {}, hit: () => false };
-const field = typeof window.makeOrb !== 'function' ? noop : window.makeOrb(document.getElementById('orb'), { n: narrow.matches ? 1100 : 1700, r: narrow.matches ? 0.3 : 0.225, speed: reduce ? 0.03 : 0.12 });
+const field = typeof window.makeOrb !== 'function' ? noop : window.makeOrb(document.getElementById('orb'), { n: narrow.matches ? 1100 : 1700, r: narrow.matches ? 0.3 : 0.225, base: narrow.matches ? 560 : 820, speed: reduce ? 0.03 : 0.12 });
 const stage = document.getElementById('stage'), planets = [...document.querySelectorAll('.planet')];
 let t = 0.02, paused = false, focus = 1, focusT = 1;
 planets.forEach((p) => { p.addEventListener('pointerenter', () => (paused = true)); p.addEventListener('pointerleave', () => (paused = false)); p.addEventListener('focus', () => (paused = true)); p.addEventListener('blur', () => (paused = false)); });

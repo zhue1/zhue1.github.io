@@ -3,7 +3,9 @@
 // orb(canvas, opts) -> { assemble(onForm, onDone), disperse(onDone), hit(x, y) }
 //   assemble: sphere -> spinning ring -> surge to center (onForm fires as the core fills) -> flash
 //   disperse: burst from the center -> explode outward -> surge back into the sphere
-window.makeOrb = function makeOrb(canvas, { n = 1600, r = 0.38, speed = 0.12 } = {}) {
+// base: the size (px) the orb is designed at; the canvas itself can be any size, so the
+// ring and the explosion have room and are capped to fit the canvas width.
+window.makeOrb = function makeOrb(canvas, { n = 1600, r = 0.38, speed = 0.12, base = 0 } = {}) {
   const ctx = canvas.getContext('2d');
   const dpr = Math.min(devicePixelRatio, 2);
   const pts = [], g = Math.PI * (3 - Math.sqrt(5));
@@ -39,8 +41,10 @@ window.makeOrb = function makeOrb(canvas, { n = 1600, r = 0.38, speed = 0.12 } =
     t += 0.016 * speed * 6;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
     ctx.globalCompositeOperation = 'lighter';
-    const R = Math.min(W, H) * r, cx = W / 2, cy = H / 2, c = Math.cos(t), s = Math.sin(t), ct = Math.cos(0.25), st = Math.sin(0.25);
-    const e = now - t0, ringR = Math.min(W, H) * 0.46, spin = e * 0.0032;
+    const B = base || Math.min(W, H), R = B * r, cx = W / 2, cy = H / 2, c = Math.cos(t), s = Math.sin(t), ct = Math.cos(0.25), st = Math.sin(0.25);
+    // widest ring point = ringR * 1.1 (jitter) * ~1.15 (overshoot); keep it inside the canvas
+    const e = now - t0, ringR = Math.min(B * 0.46, (W / 2 - 12) / 1.27), spin = e * 0.0032;
+    const blastR = Math.min(ringR, (W / 2 - 12) / 1.65);
     const paths = STY.map((row) => row.map(() => new Path2D()));
     const trails = [new Path2D(), new Path2D()];
     let glow = 0, glowR = 0;
@@ -72,7 +76,7 @@ window.makeOrb = function makeOrb(canvas, { n = 1600, r = 0.38, speed = 0.12 } =
         px = fx; py = fy;
       } else if (mode === 'disperse') {
         // explode from the center, then fly home to the (rotating) sphere
-        const ex = cx + Math.cos(q.ea) * ringR * q.er, ey = cy + Math.sin(q.ea) * ringR * q.er * 0.72;
+        const ex = cx + Math.cos(q.ea) * blastR * q.er, ey = cy + Math.sin(q.ea) * blastR * q.er * 0.72;
         const b = outExpo(clamp(e / BLAST));
         let fx = cx + (ex - cx) * b, fy = cy + (ey - cy) * b;
         if (e < BLAST * 0.6) { // streaks flying outward
@@ -113,7 +117,7 @@ window.makeOrb = function makeOrb(canvas, { n = 1600, r = 0.38, speed = 0.12 } =
   return {
     assemble(onForm, onDone) { if (mode !== 'idle') return false; mode = 'assemble'; t0 = performance.now(); fired = false; cb = { onForm, onDone }; pts.forEach((q) => (q.a = 0)); kick(); return true; },
     disperse(onDone) { mode = 'disperse'; t0 = performance.now(); cb = { onDone }; kick(); },
-    hit(x, y) { const b = canvas.getBoundingClientRect(); return Math.hypot(x - (b.left + b.width / 2), y - (b.top + b.height / 2)) < Math.min(b.width, b.height) * r * 1.15; },
+    hit(x, y) { const b = canvas.getBoundingClientRect(); return Math.hypot(x - (b.left + b.width / 2), y - (b.top + b.height / 2)) < (base || Math.min(b.width, b.height)) * r * 1.15; },
     get mode() { return mode; },
   };
 };

@@ -1,0 +1,103 @@
+/* Roblox MMORPG case study */
+.rb { position: relative; z-index: 2; max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+.rb-hero { padding: 64px 0 28px; display: grid; grid-template-columns: 1fr 1.05fr; gap: 48px; align-items: center; }
+.rb-hero h1 { font: 700 clamp(64px, 10vw, 140px)/.88 var(--display); text-transform: uppercase; letter-spacing: -.01em; margin: 14px 0 18px; }
+.rb-hero .sub { font-size: clamp(17px, 1.6vw, 20px); color: #d6d2ee; max-width: 46ch; margin: 0 0 26px; }
+.rb-hero .cta { display: flex; flex-wrap: wrap; gap: 10px; }
+.credit { margin-top: 18px; font-size: 13px; color: var(--faint); max-width: 52ch; }
+.credit a { text-decoration: underline; }
+
+/* screenshots (filled once captured) */
+figure.shot { margin: 0; }
+.shot { position: relative; border-radius: 18px; overflow: hidden; border: 1px solid var(--line); background: linear-gradient(140deg, #1b1442, #0b0820); aspect-ratio: 16 / 9; }
+.shot img, .shot video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.shot.todo { display: grid; place-items: center; text-align: center; padding: 20px; border-style: dashed; border-color: rgba(255,196,107,.45); }
+.shot.todo span { font: 500 12.5px var(--mono); color: var(--gold); letter-spacing: .04em; }
+.shot figcaption { position: absolute; left: 12px; bottom: 10px; font: 500 11.5px var(--mono); color: #fff; background: rgba(7,5,26,.6); padding: 4px 8px; border-radius: 6px; }
+
+/* stat strip */
+.rb-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; margin: 36px 0 18px; }
+.rb-stats div { background: rgba(14,10,36,.82); padding: 20px 20px 16px; }
+.rb-stats b { display: block; font: 700 clamp(30px, 3.6vw, 44px)/1 var(--display); letter-spacing: -.01em; }
+.rb-stats b i { font-style: normal; color: var(--blue); }
+.rb-stats span { font-size: 13.5px; color: var(--muted); }
+.rb-note { font-size: 13px; color: var(--faint); margin: 0 0 8px; }
+
+/* sections */
+.rb-sec { padding: 84px 0 0; }
+.rb-sec > .eyebrow { display: block; margin-bottom: 10px; }
+.rb-sec h2 { font: 700 clamp(34px, 4.6vw, 56px)/1 var(--display); text-transform: uppercase; margin: 0 0 14px; }
+.rb-sec > p.lead { color: #d6d2ee; font-size: 18px; max-width: 62ch; margin: 0 0 30px; }
+.sys { display: grid; grid-template-columns: 1.05fr 1fr; gap: 26px; align-items: start; margin-bottom: 26px; }
+.sys.flip > :first-child { order: 2; }
+.panel { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 26px; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.panel h3 { font: 700 24px/1.15 var(--display); margin: 0 0 10px; }
+.panel p { margin: 0 0 12px; color: var(--muted); }
+.panel ul { margin: 0; padding-left: 18px; color: var(--muted); }
+.panel li { margin: 5px 0; }
+.panel li b, .panel p b { color: var(--ink); font-weight: 600; }
+.kpi { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 14px; }
+.kpi span { font-size: 13px; color: var(--muted); } .kpi b { display: block; font: 700 24px var(--display); color: var(--ink); }
+
+/* code */
+.code { margin: 0; background: #0a0720; border: 1px solid var(--line); border-radius: 16px; overflow: auto; font: 12.5px/1.65 var(--mono); color: #cfcbe8; }
+.code .bar { position: sticky; left: 0; display: flex; justify-content: space-between; padding: 10px 14px; border-bottom: 1px solid var(--line); font-size: 11.5px; color: var(--faint); }
+.code pre { margin: 0; padding: 14px 16px; white-space: pre; }
+.code .c { color: #6f6a99; } .code .k { color: #b89bff; } .code .s { color: #ffc46b; } .code .f { color: #4ee6ff; } .code .n { color: #ff9ecf; }
+
+/* charts */
+.chart { width: 100%; height: auto; display: block; }
+.chart text { fill: var(--muted); font: 500 11px var(--mono); }
+.chart .axis { stroke: rgba(190,170,255,.25); }
+.chart .grid { stroke: rgba(190,170,255,.08); }
+.chart .lineA { fill: none; stroke: var(--cyan); stroke-width: 2.5; }
+.chart .areaA { fill: url(#gA); }
+.chart .dot { fill: var(--gold); }
+.chart .lbl { fill: var(--ink); font: 600 11.5px var(--body); }
+.daystrip { height: 64px; border-radius: 12px; border: 1px solid var(--line); margin: 6px 0 8px; }
+.daylabels { display: flex; justify-content: space-between; font: 500 11px var(--mono); color: var(--faint); }
+
+/* save-lock diagram */
+.lock text { fill: var(--ink); font: 600 13px var(--body); text-anchor: middle; }
+.lock .t2 { fill: var(--muted); font: 500 11px var(--mono); }
+.lock rect { fill: #120d2e; stroke: rgba(190,170,255,.3); }
+.lock .hold rect { stroke: var(--cyan); }
+.lock .deny rect { stroke: #ff6b8a; }
+.lock path { fill: none; stroke-width: 1.6; }
+
+/* enemy ladder */
+.ladder { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 6px; }
+.ladder div { border: 1px solid var(--line); border-radius: 14px; padding: 12px; background: rgba(14,10,36,.6); }
+.ladder small { display: block; font: 500 11px var(--mono); color: var(--gold); }
+.ladder b { display: block; font: 700 15px/1.2 var(--display); margin: 3px 0 4px; }
+.ladder span { font-size: 12px; color: var(--muted); }
+
+/* gallery + lessons */
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.gallery .shot:first-child { grid-column: span 2; grid-row: span 2; }
+.lessons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.lessons .panel h3 { font-size: 19px; }
+.lessons .n { font: 500 12px var(--mono); color: var(--blue); }
+.rb-cta { margin: 90px 0 0; padding: 40px; text-align: center; border-radius: 24px; border: 1px solid var(--line); background: radial-gradient(60% 120% at 50% 0%, rgba(139,92,246,.28), transparent 70%), var(--card); }
+.rb-cta h2 { font: 700 clamp(30px, 4vw, 48px)/1 var(--display); text-transform: uppercase; margin: 0 0 12px; }
+.rb-cta p { color: var(--muted); margin: 0 0 22px; }
+
+@media (max-width: 900px) {
+  .rb-hero, .sys { grid-template-columns: 1fr; }
+  .sys.flip > :first-child { order: 0; }
+  .rb-stats { grid-template-columns: repeat(2, 1fr); }
+  .ladder { grid-template-columns: repeat(2, 1fr); }
+  .gallery, .lessons { grid-template-columns: 1fr; }
+  .gallery .shot:first-child { grid-column: auto; grid-row: auto; }
+  .rb-sec { padding-top: 64px; }
+  .panel { padding: 20px; }
+  .code { font-size: 11.5px; }
+}
+
+.rb-stats b span { font: inherit; color: inherit; }
+
+/* Until a screenshot is added, its slot is hidden and the layout collapses around it. */
+.shot.todo { display: none; }
+.rb-hero:not(:has(.shot:not(.todo))) { grid-template-columns: 1fr; }
+.sys:not(:has(.panel ~ .panel, .panel ~ .code, .code ~ .panel, .shot:not(.todo))) { grid-template-columns: 1fr; }
+.rb-sec:has(.gallery):not(:has(.gallery .shot:not(.todo))) { display: none; }

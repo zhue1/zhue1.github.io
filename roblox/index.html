@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Roblox MMORPG · Eric Zhu</title>
-<meta name="description" content="A multiplayer RPG on Roblox, built solo by Eric Zhu from 2021 to 2023.">
+<meta name="description" content="A multiplayer RPG on Roblox, built solo by Eric Zhu from 2020 to 2023: combat, saves, enemies, quests, weather, every model and animation.">
 <meta property="og:title" content="Roblox MMORPG · Eric Zhu">
-<meta property="og:description" content="A multiplayer RPG on Roblox, built solo by Eric Zhu from 2021 to 2023.">
+<meta property="og:description" content="A multiplayer RPG on Roblox, built solo by Eric Zhu from 2020 to 2023: combat, saves, enemies, quests, weather, every model and animation.">
 <meta name="theme-color" content="#07051a">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,6 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/project.css">
 <link rel="stylesheet" href="/assets/css/base.css">
+<link rel="stylesheet" href="/assets/css/roblox.css">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body class="proj">
@@ -25,25 +26,183 @@
     <a class="btn btn-ghost" href="/resume.pdf" target="_blank" rel="noopener">Resume</a>
   </div>
 </header>
-<main>
-<section class="chapter">
-    <div class="chapter-head reveal">
-      <p class="eyebrow mono">Project 03 · Solo developer · Jun 2021 – Aug 2023</p>
-      <h2 class="scramble">MMORPG</h2>
-      <p class="sub">A multiplayer RPG on Roblox that I started in high school and built alone, from the combat and quest systems to the 3D models.</p>
+<main class="rb">
+  <section class="rb-hero">
+    <div class="reveal">
+      <p class="eyebrow mono">Project 03 · Solo developer · 2020 – 2023</p>
+      <h1 class="scramble">MMORPG</h1>
+      <p class="sub">A multiplayer action RPG on Roblox that I started in high school and built completely alone: the server code, the save system, the combat, the enemies, and every 3D model and animation.</p>
+      <div class="cta"><a class="btn btn-solid" href="https://www.roblox.com/games/5206260162/RPG" target="_blank" rel="noopener">Play on Roblox ↗</a><a class="btn btn-ghost" href="#systems">How it works ↓</a></div>
+      <p class="credit">Built on Roblox in Luau. Two open-source pieces: <a href="https://madstudioroblox.github.io/ProfileService/" target="_blank" rel="noopener">ProfileService</a> for session-locked saves and buildthomas's rain effect. Everything else is mine.</p>
     </div>
-    <div class="more-grid">
-      <article class="tile reveal">
-        <p class="mono when">Jun 2021 – Aug 2023</p>
-        <h3>Multiplayer MMORPG on Roblox</h3>
-        <p>Started in high school and built it alone: quests, combat, weather, NPCs and events across 100+ gameplay, UI and server scripts, with session-locked player saves. I made the 3D models too, and ran A/B-tested ad campaigns for launch.</p>
-        <div class="mini-stats"><span><b>781</b> visits</span><span><b>28</b> testers</span><span><b>1</b> developer</span></div>
-        <div class="chips"><span>Luau</span><span>Client/server</span><span>Persistence</span><span>3D modeling</span></div>
-      </article>
-      <article class="tile reveal"><p class="mono when">What I built</p><h3>Systems</h3><p>Quests, combat, weather, defense, NPCs and live events, split across 100+ gameplay, UI and server scripts with an event-driven client/server design.</p></article>
-      <article class="tile reveal"><p class="mono when">Saves &amp; launch</p><h3>Persistence and players</h3><p>Session-locked player saves so progress could not be duplicated or lost between servers, then a public release with 28 testers and A/B-tested ad campaigns.</p></article>
+    <figure class="shot todo reveal" data-shot="hero"><span>SCREENSHOT: wide shot of the world (or a 10–20 s gameplay loop)</span></figure>
+  </section>
+
+  <div class="rb-stats reveal">
+    <div><b><span data-count="7000">0</span><i>+</i></b><span>lines of my own Luau</span></div>
+    <div><b data-count="76">0</b><span>scripts I wrote</span></div>
+    <div><b data-count="58">0</b><span>animations, all hand-made</span></div>
+    <div><b data-count="87">0</b><span>custom 3D meshes</span></div>
+    <div><b><span data-count="20000">0</span><i>+</i></b><span>parts built in Studio</span></div>
+    <div><b data-count="5">0</b><span>enemy types, Lv 0 to Lv 250</span></div>
+    <div><b data-count="4">0</b><span>weapons with their own move sets</span></div>
+    <div><b data-count="781">0</b><span>visits from 28 testers, public release</span></div>
+  </div>
+  <p class="rb-note">Counts come from the game file itself, excluding Roblox's built-in scripts, the two libraries above and duplicate copies.</p>
+
+  <section class="rb-sec" id="systems">
+    <span class="eyebrow">01 · Saves</span>
+    <h2>Saves that can't be duplicated</h2>
+    <p class="lead">The classic way to break an RPG is to open it on two servers at once and trade an item to yourself. Each player's save is locked to one server: if it opens somewhere else, the first server releases it and the player is moved, so progress can never fork.</p>
+    <div class="sys reveal">
+      <div class="panel">
+        <svg class="lock" viewBox="0 0 520 250" role="img" aria-label="Server A holds the player's save lock. When the same profile loads on Server B, Server A releases it and the player is kicked from A, so only one copy is ever live.">
+          <g class="hold"><rect x="20" y="30" width="150" height="62" rx="12"/><text x="95" y="57">Server A</text><text x="95" y="76" class="t2">holds the lock</text></g>
+          <g><rect x="185" y="150" width="150" height="62" rx="12"/><text x="260" y="177">Player profile</text><text x="260" y="196" class="t2">Level · Cash · Inventory</text></g>
+          <g class="deny"><rect x="350" y="30" width="150" height="62" rx="12"/><text x="425" y="57">Server B</text><text x="425" y="76" class="t2">asks to load it</text></g>
+          <path d="M95 92 C95 130 200 140 230 150" stroke="#4ee6ff"/>
+          <path d="M425 92 C425 130 320 140 290 150" stroke="#ff6b8a" stroke-dasharray="5 5"/>
+          <text x="260" y="122" class="t2">only one live copy, ever</text>
+          <text x="95" y="235" class="t2">A releases → kicks player</text>
+          <text x="425" y="235" class="t2">B gets a clean copy</text>
+        </svg>
+        <ul>
+          <li>The save template is reconciled on every load, so <b>new fields reach old players</b> without a migration.</li>
+          <li>It also logs <b>log-in count and total play time</b>.</li>
+          <li>Saving is blocked until the profile has fully loaded (<b>CanSave</b>), so a slow load can't overwrite real progress with zeros.</li>
+        </ul>
+      </div>
+      <div class="code reveal"><div class="bar"><span>ServerStorage/Systems/DataService.lua</span><span>excerpt</span></div><pre><span class="k">local function</span> <span class="f">PlayerAdded</span>(player)
+  <span class="k">local</span> profile = GameProfileStore:<span class="f">LoadProfileAsync</span>(<span class="f">tostring</span>(player.UserId))
+  <span class="k">if</span> profile <span class="k">then</span>
+    profile:<span class="f">AddUserId</span>(player.UserId) <span class="c">-- GDPR compliance</span>
+    profile:<span class="f">Reconcile</span>()           <span class="c">-- fill in fields added since</span>
+
+    profile:<span class="f">ListenToRelease</span>(<span class="k">function</span>()
+      Profiles[player] = <span class="k">nil</span>
+      <span class="c">-- the profile was loaded on another server:</span>
+      player:<span class="f">Kick</span>(<span class="s">"Profile is already loaded on another Server."</span>)
+    <span class="k">end</span>)
+
+    <span class="k">if</span> player:<span class="f">IsDescendantOf</span>(Players) <span class="k">then</span>
+      <span class="f">OnPostProfileLoad</span>(player, profile)
+      Profiles[player] = profile
+    <span class="k">else</span>
+      profile:<span class="f">Release</span>() <span class="c">-- left before it finished loading</span>
+    <span class="k">end</span>
+  <span class="k">else</span>
+    player:<span class="f">Kick</span>(<span class="s">"Failed to Load Data"</span>)
+  <span class="k">end</span>
+<span class="k">end</span></pre></div>
     </div>
-  </section></main>
+  </section>
+
+  <section class="rb-sec">
+    <span class="eyebrow">02 · Combat</span>
+    <h2>Real-time melee combat</h2>
+    <p class="lead">Four weapons, each with its own animations, effects and finishers, plus movement built for fighting: dash, double jump, sprint and a stamina bar that grows with your level.</p>
+    <div class="sys reveal">
+      <figure class="shot todo" data-shot="combat"><span>SCREENSHOT: a hit landing, with the slash / impact effects</span></figure>
+      <div class="panel">
+        <h3>What's in a fight</h3>
+        <ul>
+          <li><b>Fists, Katana, Buster Sword, Cursed Flame Katana</b>, each with a 3-hit combo and its own knockback.</li>
+          <li>A <b>charged punch that ragdolls</b> the target: the body's joints are swapped for ball-socket physics for 4 seconds, then restored.</li>
+          <li><b>Ultimates</b>: a ground shockwave with a ring of rocks, and a "dark matter" charge that builds while held.</li>
+          <li><b>Hit reactions</b>: a target flinches when one hit takes more than 10% of its remaining health; blocked sword hits spark and clang.</li>
+          <li><b>Kill credit</b> tags the last attacker, who gets the XP, cash and kill count.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sys flip reveal">
+      <div class="panel">
+        <h3>Blocking that rewards timing</h3>
+        <p>A fresh block stops <b>90%</b> of the damage, then weakens by 5% every 0.2 s you keep holding it, bottoming out at <b>40%</b> after two seconds. Turtling stops working, so well-timed blocks matter.</p>
+      </div>
+      <div class="panel"><svg class="chart" id="blockChart" role="img" aria-label="Block damage reduction over time: 90% at first, falling 5% every 0.2 seconds to a 40% floor at 2 seconds."></svg></div>
+    </div>
+  </section>
+
+  <section class="rb-sec">
+    <span class="eyebrow">03 · Enemies &amp; progression</span>
+    <h2>Five enemies, one curve</h2>
+    <p class="lead">Players and enemies share one health formula, so a level means the same thing on both sides. Level-ups pay cash, heal 30% of missing health and raise max health and stamina; leftover XP rolls into the next level.</p>
+    <div class="sys reveal">
+      <div class="panel">
+        <svg class="chart" id="hpChart" role="img" aria-label="Max health by level, floor((25 times level) to the power 1.1) plus 150, with the five enemy types marked."></svg>
+        <p class="rb-note" style="margin-top:8px">max health = ⌊(25 · level)<sup>1.1</sup>⌋ + 150 &nbsp;·&nbsp; XP to next level = 25 · (level + 1)</p>
+      </div>
+      <div class="panel">
+        <h3>How an enemy thinks</h3>
+        <p>Every 0.1 s each enemy looks for the nearest player within 30 studs. It equips its weapon and closes in, faces the player and swings when within 7, then waits out a 1.3 s cooldown. Out of range, it sheathes the weapon and stands down.</p>
+        <p>Spawner folders in the map decide where each type appears. When one dies it drops XP and cash, and the same spawner brings it back 60 s later.</p>
+        <div class="ladder">
+          <div><small>Lv 0</small><b>Thug</b><span><i data-hp="0"></i> HP</span></div>
+          <div><small>Lv 20</small><b>Thug</b><span><i data-hp="20"></i> HP</span></div>
+          <div><small>Lv 50</small><b>Thug</b><span><i data-hp="50"></i> HP</span></div>
+          <div><small>Lv 75</small><b>Rogue Samurai</b><span><i data-hp="75"></i> HP</span></div>
+          <div><small>Lv 250</small><b>Cursed Flame Samurai</b><span><i data-hp="250"></i> HP</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rb-sec">
+    <span class="eyebrow">04 · Quests, shop &amp; world</span>
+    <h2>A world that keeps moving</h2>
+    <div class="sys reveal">
+      <div class="panel">
+        <h3>Quests</h3>
+        <p>Quests are plain data: a title, a target enemy, how many to defeat, and the XP and cash reward. Taking one at the quest board marks those enemies with trackers, and progress is saved, so a quest survives leaving and rejoining.</p>
+        <h3 style="margin-top:18px">Shop &amp; inventory</h3>
+        <p>Weapons are data too (price and damage), bought from a shop UI and shown in the inventory with live 3D previews of the item and your character.</p>
+      </div>
+      <figure class="shot todo" data-shot="quest"><span>SCREENSHOT: the quest board or quest tracker UI</span></figure>
+    </div>
+    <div class="sys flip reveal">
+      <div class="panel">
+        <h3>Day, night &amp; storms</h3>
+        <p>A full day lasts <b>37.5 minutes</b>. Brightness, ambient light and shadow softness follow cosine curves, and the sky tint blends through a 24-hour color table, which gives the gold dawns and dusks in the strip below.</p>
+        <p>Storms roll in on their own: about a 1-in-200 chance every 5 s, a minute of clouds thickening, around six minutes of rain, then at least a 5-minute break.</p>
+      </div>
+      <div class="panel">
+        <span class="eyebrow">one in-game day, drawn from the game's lighting code</span>
+        <div class="daystrip" id="dayStrip"></div>
+        <div class="daylabels"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>24:00</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rb-sec">
+    <span class="eyebrow">05 · Built by hand</span>
+    <h2>Every model, every animation</h2>
+    <p class="lead">No asset packs: 87 custom meshes, 845 solid-modeled unions and 58 animations, from the weapons and enemies to the map itself.</p>
+    <div class="gallery reveal">
+      <figure class="shot todo" data-shot="g1"><span>SCREENSHOT: best wide shot of the map</span></figure>
+      <figure class="shot todo" data-shot="g2"><span>SCREENSHOT: a weapon close-up</span></figure>
+      <figure class="shot todo" data-shot="g3"><span>SCREENSHOT: an enemy / boss</span></figure>
+      <figure class="shot todo" data-shot="g4"><span>SCREENSHOT: night or storm</span></figure>
+      <figure class="shot todo" data-shot="g5"><span>SCREENSHOT: inventory / shop UI</span></figure>
+    </div>
+  </section>
+
+  <section class="rb-sec">
+    <span class="eyebrow">06 · Looking back</span>
+    <h2>What I'd do differently</h2>
+    <p class="lead">Rereading this code years later is the clearest picture of how I've grown as an engineer.</p>
+    <div class="lessons reveal">
+      <div class="panel"><span class="n">01</span><h3>Never trust the client with numbers</h3><p>The client told the server how much damage a hit did, so a cheater could edit it. Today the server would compute every hit. It's the same rule I now build Ora on: the AI suggests, deterministic code decides.</p></div>
+      <div class="panel"><span class="n">02</span><h3>Events over polling</h3><p>Quest tracking scanned enemy folders in loops. Now I'd fire an event when an enemy dies and let the quest system listen, which is less work for the server and has fewer edge cases.</p></div>
+      <div class="panel"><span class="n">03</span><h3>One module, not 46 copies</h3><p>Each enemy carried its own copy of its scripts, 46 duplicates in all. A shared module would have made every fix a one-line change instead of a hunt.</p></div>
+    </div>
+  </section>
+
+  <section class="rb-cta reveal">
+    <h2>Try it yourself</h2>
+    <p>The game is still live on Roblox.</p>
+    <a class="btn btn-solid" href="https://www.roblox.com/games/5206260162/RPG" target="_blank" rel="noopener">Play on Roblox ↗</a>
+  </section>
+</main>
 <nav class="nextp" aria-label="Next page"><a href="/about/"><span><small>Next</small><b>About me</b></span><span class="arrow">→</span></a></nav>
 <footer class="foot mono">
   <span>© 2026 Eric Zhu</span>
@@ -51,5 +210,6 @@
 </footer>
 <script src="/assets/js/bgfx.js"></script>
 <script type="module" src="/assets/js/project.js"></script>
+<script src="/assets/js/roblox.js"></script>
 </body>
 </html>
